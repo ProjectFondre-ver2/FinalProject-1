@@ -63,6 +63,61 @@ section {
     font-weight: 700;
 }
 
+/* =========== Header =========== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem 7%;
+    height: 8rem;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    z-index: 1000;
+}
+
+/* =========== Navbar =========== */
+.navbar a {
+    font-weight: 500;
+    transition: var(--transition);
+    padding: 1rem;
+    border-bottom: 2px solid transparent;
+}
+/* ความห่าง */
+.navbar a:not(:last-child) {
+    margin-right: 1rem;
+}
+/* สีตอนวางเมาส์ */
+.navbar a:hover {
+    color: var(--yellow);
+    border-color: var(--yellow);
+}
+/* กรอบตรงmake an order */
+.btn {
+    display: inline-block;
+    color: var(--yellow);
+    background-color: var(--btn-yellow);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: var(--transition);
+}
+/* เงากรอบตรงmake an order ตอนคลิกเมาส์ */  
+.btn:hover {
+    box-shadow: var(--box-shadow);
+} 
+
+#menu-bar{
+    font-size: 3rem;
+    cursor: pointer;
+    color: #666;
+    border: .1rem solid #666;
+    padding: .5rem 1.5rem;
+    display: none;
+}
+
 /* =========== Home =========== */
 .home {
     padding-top: 13rem;
