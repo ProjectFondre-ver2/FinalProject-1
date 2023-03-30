@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* =========== BASIC SETTING =========== */
+/* กรอบขาว */
+:root {
+    --black: #1f1f1f;
+    --white: #fff;
+    --yellow: #ffc554;
+    --deep-yellow: #ffc727;
+    --bg-yellow: #fffaf1;
+    --btn-yellow: #fff4d4;
+    --footer-yellow: #fff9e9;
+    --grey: #737373;
+    --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s linear;
+}
+
+html {
+    font-size: 65%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    /* color: var(--black); */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+.head {
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+    color: #666;
+}
+  
+/* li {
+    list-style: none;
+} */
+  
+/* img {
+    height: 100%;
+} */
+
+.yellow {
+    color: var(--yellow);
+}
+
+.logo {
+    font-size: 3.6rem;
+    font-weight: 700;
+}
+
+/* =========== Home =========== */
+.home {
+    padding-top: 13rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    /* display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; */
+}
+  
+/* .home .image img {
+    width: 100%;
+} */
+  
+.home .content h1 {
+    font-size: 5.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+  
+.home .content p {
+    color: var(--grey);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+/* กรอบรอบgo to menu */
+.home .content .home-btn {
+    display: inline-block;
+    color: var(--white);
+    font-weight: 500;
+    border-radius: 0.5rem;
+    background-color: var(--yellow);
+    padding: 1rem 1.5rem;
+    margin-top: 1rem;
+    transition: var(--transition);
+}
+/* เงา+ขยับ */ 
+.home .content .home-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+}
+
+/* =========== Popular =========== */
+.popular .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+/* กรอบ */
+.popular .box-container .box{
+    flex: 1 1 30rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    border: .1rem solid rgba(0, 0, 0, .3);
+    cursor: pointer;
+    border-radius: .5rem;
+}
+/* ซ้อนรูป */
+.popular .box-container .box .image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: -100%; left: 0;
+}
+/* จัดตัวหนงัสือ */
+.popular .box-container .box .content{
+    text-align: center;
+    background: #fff;
+    padding: 2rem;
+}
+.popular .box-container .box .content img{
+    margin: 1.5rem 0;
+}
+.popular .box-container .box .content h3{
+    font-size: 2.5rem;
+    color: #333;
+}
+.popular .box-container .box .content p{
+    font-size: 1.6rem;
+    color: #666;
+    padding:1rem  0;
+}
+/* จิ้มรูปแล้วรูปเปลี่ยน */
+.popular .box-container .box:hover .image{
+    top: 0;
+}
+.popular .box-container .box:hover .content{
+    transform: translateY(100%);
+}
