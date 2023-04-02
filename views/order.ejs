@@ -64,5 +64,89 @@
   </div>
 </section>
   
+<% if(user.orders.length != 0) { %>
+<section>
+    <div class="order">
+      <h1>Confirmed <span class="yellow">Order</span></h1>
+    </div>
+    <div class="box-container order-box">
+  
+      <div class="small-container cart-page">
+          <table>
+              <tr>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>Subtotal</th>
+              </tr>
+              <% let subtotal = 0;
+   for (let i = 0; i < user.orders.length; i++) { 
+      let price = user.orders[i].price * user.orders[i].amount;
+      subtotal += price;
+%>
+    <tr>
+        <td>
+            <div class="order-info">
+                <img src="<%= user.orders[i].imgUrl %>" alt="">
+                <div>
+                    <p><%= user.orders[i].name %></p>
+                    <small>Price: $<%= user.orders[i].price %></small>
+                    <td><%= user.orders[i].amount %></td>
+                </div>
+            </div>
+        </td>
+        <td>$<%= price %></td>
+    </tr>
+<% } %>
+          </table>
+
+          <div class="total-price-order">
+            <table>
+                <tr>
+                    <td>Subtotal</td>
+                    <td id="subtotal">$<%= subtotal.toFixed(2) %></td>
+                </tr>
+                <tr>
+                    <td>Tax (10%)</td>
+                    <td id="tax">$<%= (subtotal * 0.1).toFixed(2) %></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td id="total">$<%= (subtotal * 1.1).toFixed(2) %></td>
+                </tr>
+            </table>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% } %>
+  <!-- js file link -->
+  <script> 
+
+function updatePrice(i, price) {
+  const priceElem = document.getElementById(`price${i}`);
+  const amountElem = document.getElementById(`order_${i}`);
+  const amount = parseInt(amountElem.value);
+  const newPrice = price * amount;
+  priceElem.innerHTML = `$${newPrice.toFixed(2)}`;
+  updateTotal();
+}
+  
+  function updateTotal() {
+    const prices = document.querySelectorAll('[id^=price]');
+    let subtotal = 0;
+    prices.forEach(priceElem => {
+      subtotal += parseInt(priceElem.innerHTML.substring(1));
+    });
+    const tax = subtotal * 0.1;
+    const total = subtotal + tax;
+    document.getElementById('subtotal').innerHTML = `$${subtotal.toFixed(2)}`;
+    document.getElementById('tax').innerHTML = `$${tax.toFixed(2)}`;
+    document.getElementById('total').innerHTML = `$${total.toFixed(2)}`;
+  }
+  
+  
+  </script>
+  <!-- <script src="script.js"></script> -->
 </body>
 </html>
