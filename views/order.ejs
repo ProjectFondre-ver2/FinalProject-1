@@ -1,0 +1,45 @@
+<%- include ('partials/head'); %>
+<body>
+  <!-- Header -->
+  <%- include ('partials/header'); %>
+
+<!-- Home -->
+<section>
+  <div class="order">
+    <h1>Your <span class="yellow">Order</span></h1>
+  </div>
+  <div class="box-container order-box">
+
+    <div class="small-container cart-page">
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+                <% for (let i = 0; i < user.products.length; i++) { %>
+
+                    <tr>
+                      <td>
+                        <div class="order-info">
+                          <img src="<%= user.products[i].imgUrl %>" alt="">
+                          <div>
+                            <p><%= user.products[i].name %></p>
+                            <small>Price: $<%= user.products[i].price %></small>
+                            </form>
+                          </div>
+                        </div>
+                      </td>
+                      <!-- Modify the input field to have a unique name -->
+                      <td>
+                        <input name="order_<%= i %>" id="order_<%= i %>" min="1" max="100" type="number" onchange="updatePrice(<%= i %>, <%= user.products[i].price %>)">
+                      </td>
+                      <td id="price<%= i %>">$<%= user.products[i].price * user.products[i].amount %></td>
+                    </tr>
+                  <% } %>
+        </table>
+      </div>
+  </script>
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>
