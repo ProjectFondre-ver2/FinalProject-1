@@ -1,243 +1,183 @@
 <div id="myModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p> Review</p>
-    </div> 
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p> Review</p>
+  </div> 
+</div>
+
+<!-- Home -->
+<section class="home" id="home">
+  <div class="content">
+    <h1>Order Your Food <span class="yellow">Easier & Faster.</span></h1>
+    <p>
+      Fondre is a leading global online food delivery marketplace,
+      connecting consumers and restaurants through its platform in 24
+      countries.
+    </p>
+    <a href="#menu" class="home-btn">Order now</a>
   </div>
+  <div class="image">
+    <img src="/images/food.png" alt="" />
+  </div>
+</section>
 
-  <!-- Home -->
-  <section class="home" id="home">
-    <div class="content">
-      <h1>Order Your Food <span class="yellow">Easier & Faster.</span></h1>
-      <p>
-        Fondre is a leading global online food delivery marketplace,
-        connecting consumers and restaurants through its platform in 24
-        countries.
+<!-- Popular -->
+<section class="popular" id="popular">
+  <h1 class="head">Most <span class="yellow">popular</span> foods</h1>
+
+  <div class="box-container">
+    <% for (let i = 0; i < 3; i++) { %>
+      <% const product = products.find(p => p.id === i); %>
+      <div class="box" > 
+        <% if(user) { %>
+        <a href="<%= ('/addproduct/' + user.id + '/' + product.id) %>">
+        <img class="image" src="<%= product.imgUrl %>" alt="" >
+        </a>
+        <% } else { %>
+          <a href="/login">
+            <img class="image" src="<%= product.imgUrl %>" alt="" >
+            </a>
+          <% } %>
+        <div class="content">
+        <img src="<%= img02[i] %>" alt="" >
+          <h3><%= product.name %></h3>
+          <p><%= product.description %></p>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</section>
+<!-- Menu -->
+<section class="menu" id="menu">
+
+  <h1 class="head yellow">Dishes</h1>
+  <div class="box-container">
+      <% for (let i = 3; i < 7; i++) { %>
+        <% const product = products.find(p => p.id === i); %>
+        <div class="box">
+          <span class="price">$<%= product.price %></span>
+          <img src="<%= product.imgUrl %>" alt="">
+          <h3><%= product.name %></h3>
+          <% if(user) { %>
+            <a href="<%= ('/addproduct/' + user.id + '/' + product.id) %>" class="btn">Order Now</a>
+            <% } else { %>
+            <a href="/login" class="btn">Order Now</a>
+            <% } %>
+        </div>
+      <% } %>
+    </div>
+
+  <h1 class="head yellow">Dessert</h1>
+  <div class="box-container">
+    <% for (let i = 7; i < 11; i++) { %>
+      <% const product = products.find(p => p.id === i); %>
+      <div class="box">
+        <span class="price">$<%= product.price %></span>
+        <img src="<%= product.imgUrl %>" alt="">
+        <h3><%= product.name %></h3>
+        <% if(user) { %>
+          <a href="<%= ('/addproduct/' + user.id + '/' + product.id) %>" class="btn">Order Now</a>
+          <% } else { %>
+          <a href="/login" class="btn">Order Now</a>
+          <% } %>
+      </div>
+    <% } %>
+  <h1 class="head yellow">Soup</h1>
+  <div class="box-container">
+    <% for (let i = 11; i < 15; i++) { %>
+      <% const product = products.find(p => p.id === i); %>
+        <div class="box">
+        <span class="price">$<%= product.price %></span>
+        <img src="<%= product.imgUrl %>" alt="">
+        <h3><%= product.name %></h3>
+        <% if(user) { %>
+          <a href="<%= ('/addproduct/' + user.id + '/' + product.id) %>" class="btn">Order Now</a>
+          <% } else { %>
+          <a href="/login" class="btn">Order Now</a>
+          <% } %>
+      </div>
+    <% } %>
+</section>
+
+<!-- Review -->
+<section class="review" id="review">
+  <h1 class="head">Our customer <span class="yellow">review</span></h1>
+
+  <div class="box-container">
+
+    <div class="box">
+      <img src="./images/user01.png" alt="">
+      <h3>review</h3>
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <p>This is one of my favorite restaurants. The food is really yummy... They always serve good quality food. For home delivery also, food is delivered quite fast. Thumbs up!</p>
+    </div>
+    
+      <!-- copy&past -->
+    <div class="box">
+      <img src="./images/user02.png" alt="">
+      <h3>review</h3>
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+      </div>
+      <p> Food - Awesome food, whether it is a meal or dessert </p>
+        <p>Price - Very budget friendly priced, sometimes lower than some more popular restaurants, without compromising on quality
       </p>
-      <a href="#menu" class="home-btn">Order now</a>
-    </div>
-    <div class="image">
-      <img src="/images/food.png" alt="" />
-    </div>
-  </section>
-
-  <!-- Popular -->
-  <section class="popular" id="popular">
-    <h1 class="head">Most <span class="yellow">popular</span> foods</h1>
-
-    <div class="box-container">
-      <div class="box">
-        <img class="image" src="./images/truffle.png" alt=""> <!--รูปข้างมน-->
-        <div class="content">
-          <img src="./images/truffle02.jpg" alt=""> <!--ไอคอน-->
-          <h3>Truffle Cream Soup</h3>
-          <p>A soup with assorted truffles cooked with vegetable stock, milk, and cream.</p>
-        </div>
-      </div>
-
-      <!--ทำลงไป2อัน-->
-      <div class="box">
-        <img class="image" src="./images/chateaubriand.jpg" alt=""> <!--รูปข้างมน-->
-        <div class="content">
-          <img src="./images/chateaubriand02.jpg" alt=""> <!--ไอคอน-->
-          <h3>Chateaubriand</h3>
-          <p>Thai french beef tenderloin, mash potato, Ma-Kueaun and Red wine sauce</p>
-        </div>
-      </div>
-
-      <div class="box">
-        <img class="image" src="./images/foiegras.jpg" alt=""> <!--รูปข้างมน-->
-        <div class="content">
-          <img src="./images/foiegras02.jpg" alt=""> <!--ไอคอน-->
-          <h3>Foie Gras</h3>
-          <p>Pan-Seared Foie Gras, corn Puree, salted crumble, apple longan balsamic reduction</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu -->
-  <section class="menu" id="menu">
-
-    <h1 class="head yellow">Dishes</h1>
-    <div class="box-container">
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/dishes01.jpg" alt="">
-        <h3>Confit De Cannard</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
-      <!--ทำลงไป5อัน-->
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/dishes02.jpg" alt="">
-        <h3>Escargots De Bourgogne</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/dishes03.jpg" alt="">
-        <h3>Bouillabaisse</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/dishes04.jpg" alt="">
-        <h3>Duck leg Confit</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
     </div>
 
-    <h1 class="head yellow">Dessert</h1>
-    <div class="box-container">
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/sweets01.jpg" alt="">
-        <h3>Crème Brulee</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
+    <div class="box">
+      <img src="./images/user03.png" alt="">
+      <h3>review</h3>
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
       </div>
+      <p> Very tasty and well prepared and you can chose among many menu options. 
+      </p>
+  </div>
+</section>
 
-      <!--ทำลงไป5อัน-->
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/sweets04.jpg" alt="">
-        <h3>Clafoutis</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
+<!-- footer -->
+<section class="footer">
 
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/sweets03.jpg" alt="">
-        <h3>Madeleines</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
+  <div class="box-container">
 
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/sweets02.jpg" alt="">
-        <h3>Macaron</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
+    <div class="box">
+      <i class="fas fa-envelope"></i>
+      <h3>Our Email</h3>
+      <p>FondreOfficial@gmail.com</p>
+      <p>Fondre@gmail.com</p>
     </div>
 
-    <h1 class="head yellow">Soup</h1>
-    <div class="box-container">
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/soup01.jpg" alt="">
-        <h3>Consomme</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
-
-      <!--ทำลงไป5อัน-->
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/soup02.jpg" alt="">
-        <h3>Soup A Loignon</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/soup03.jpg" alt="">
-        <h3>Butternut Soup</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
-
-      <div class="box">
-        <span class="price"> $5 - $20</span>
-        <img src="./images/soup04.jpg" alt="">
-        <h3>Crab Bisque</h3>
-        <a href="#" class="btn">order now</a> <!--กดแล้วมันขึ้นไปข้างบน-->
-      </div>
+    <div class="box">
+      <i class="fas fa-clock"></i>
+      <h3>Opening Hours</h3>
+      <p>07:00am to 09:00pm</p>
     </div>
 
-  </section>
-
-  <!-- Review -->
-  <section class="review" id="review">
-    <h1 class="head">Our customer <span class="yellow">review</span></h1>
-
-    <div class="box-container">
-
-      <div class="box">
-        <img src="./images/user01.png" alt="">
-        <h3>review</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p>This is one of my favorite restaurants. The food is really yummy... They always serve good quality food. For home delivery also, food is delivered quite fast. Thumbs up!</p>
-      </div>
-      
-        <!-- copy&past -->
-      <div class="box">
-        <img src="./images/user02.png" alt="">
-        <h3>review</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
-        <p> Food - Awesome food, whether it is a meal or dessert </p>
-          <p>Price - Very budget friendly priced, sometimes lower than some more popular restaurants, without compromising on quality
-        </p>
-      </div>
-
-      <div class="box">
-        <img src="./images/user03.png" alt="">
-        <h3>review</h3>
-        <div class="stars">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="far fa-star"></i>
-        </div>
-        <p> Very tasty and well prepared and you can chose among many menu options. 
-        </p>
+    <div class="box">
+      <i class="fas fa-map-marker-alt"></i>
+      <h3>Restaurant Location</h3>
+      <p>Chiang Mai, Thailand, 50210</p>
     </div>
-  </section>
 
-  <!-- footer -->
-  <section class="footer">
-
-    <div class="box-container">
-
-      <div class="box">
-        <i class="fas fa-envelope"></i>
-        <h3>Our Email</h3>
-        <p>FondreOfficial@gmail.com</p>
-        <p>Fondre@gmail.com</p>
-      </div>
-
-      <div class="box">
-        <i class="fas fa-clock"></i>
-        <h3>Opening Hours</h3>
-        <p>07:00am to 09:00pm</p>
-      </div>
-
-      <div class="box">
-        <i class="fas fa-map-marker-alt"></i>
-        <h3>Restaurant Location</h3>
-        <p>Chiang Mai, Thailand, 50210</p>
-      </div>
-
-      <div class="box">
-        <i class="fas fa-phone"></i>
-        <h3>Our Number</h3>
-        <p>+66-123-4578</p>
-        <p>+66-224-2510</p>
-      </div>
+    <div class="box">
+      <i class="fas fa-phone"></i>
+      <h3>Our Number</h3>
+      <p>+66-123-4578</p>
+      <p>+66-224-2510</p>
     </div>
-    <script src="/script/indexjs.js"></script>
+  </div>
+  <script src="/script/indexjs.js"></script>
