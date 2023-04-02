@@ -1,37 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    
         <div class="wrapper">
-            <span class="icon-close"><ion-icon name="close-outline"></ion-icon></span>
+            <a href="/" method="">
+            <span class="icon-close">
+              <ion-icon name="close-outline"></ion-icon>
+            </span>
+          </a>
             <div class="form-box login">
                 <h2>Login</h2>
-                <form action="#">
-                    <!-- <div class="input-box">
-                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                        <input type="email" required>
-                        <label>Email</label>
-                    </div> -->
+                <form action="/loginsubmit" method="post">
                     <div class="input-box">
-                        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <input type="text" required>
-                        <label>Username</label>
+                        <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                        <input type="email" required id="Email" name="Email">
+                        <label>Email</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                        <input type="password" required>
+                        <input type="password" required id="Password" name="Password">
                         <label>Password</label>
                     </div>
                     <div class="remember-forgot">
-                        <label><input type="checkbox">Remember me</label>
-                        <a href="#">Forgot Password?</a>
                     </div>
                     <button type="submit" class="btn">Login</button>
                     <div class="login-register">
@@ -43,25 +37,21 @@
 
             <div class="form-box register">
                 <h2>Registration</h2>
-                <form action="#">
+                <form action='/register' method="post">
                     <div class="input-box">
                         <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-                        <input type="text" required>
+                        <input type="text" required id="RegUsername" name="RegUsername">
                         <label>Username</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-                        <input type="email" required>
+                        <input type="email" required id="RegEmail" name="RegEmail">
                         <label>Email</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
-                        <input type="password" required>
+                        <input type="password" required id="RegPassword" name="RegPassword">
                         <label>Password</label>
-                    </div>
-                    <div class="remember-forgot">
-                        <label><input type="checkbox">I agree to the terms & conditions</label>
-                        
                     </div>
                     <button type="submit" class="btn">Register</button>
                     <div class="login-register">
@@ -74,6 +64,6 @@
         </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="login.js"></script>
+    <script src="/script/script.js"></script>
 </body>
 </html>
