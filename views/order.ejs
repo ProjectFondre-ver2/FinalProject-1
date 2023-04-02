@@ -26,6 +26,8 @@
                           <div>
                             <p><%= user.products[i].name %></p>
                             <small>Price: $<%= user.products[i].price %></small>
+                            <form action="/delete/<%= user.id %>/<%= user.products[i]._id%>" method="POST">
+                              <button type="submit">Remove</button>
                             </form>
                           </div>
                         </div>
@@ -38,8 +40,5 @@
                     </tr>
                   <% } %>
         </table>
-      </div>
-  </script>
-  <!-- <script src="script.js"></script> -->
 </body>
 </html>
