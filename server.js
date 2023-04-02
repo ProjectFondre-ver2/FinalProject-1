@@ -31,7 +31,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: 3600000 }, //one hour
     store: MongoStore.create({
-        mongoUrl: 'mongodb://127.0.0.1:27017/mydatabase'
+        mongoUrl: 'mongodb+srv://pharanyali:Pr_241245@devopsproject.vvg3aml.mongodb.net/test'
     })
 }));
 

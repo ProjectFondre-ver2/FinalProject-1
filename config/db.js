@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const mongo_url = 'mongodb://127.0.0.1:27017/mydatabase';
+const mongo_url = 'mongodb+srv://pharanyali:Pr_241245@devopsproject.vvg3aml.mongodb.net/test';
 
 exports.connect = () => {
   // Connecting to the database
