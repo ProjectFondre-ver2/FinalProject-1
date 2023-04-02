@@ -1,0 +1,28 @@
+<header class="header">
+    <a href="/" class="logo">Fon<span class="yellow">dre</span></a>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+      <a href="/">Home</a>
+      <a href="/#popular">Popular</a>
+      <a href="/#menu">Menu</a>
+      <a href="/#review">Review</a>
+      <% if (user && user.id !== '20000') { %>
+      <a href="/order/<%= user.id %>" class="btn">Order</a>
+      <% } else if (user && user.id === '20000') { %>
+      <% } else { %>
+      <a href="/login">Order</a>
+      <% } %>
+      <% if (user && user.id === '20000') { %>
+        <a href="/#" class="btn">Restaurant</a>
+      <% } else { %>
+      <% } %>
+      <% if (user) { %>
+        <a>Logged in as <%= user.username %></a>
+        <a href="/logout" class="btn">Logout</a>
+      <% } else { %>
+        <a href="/login" class="btn">Log in</a>
+      <% } %>
+    </nav>
+  </header>
