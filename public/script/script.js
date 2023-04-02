@@ -1,12 +1,11 @@
-let menu = document.querySelector('#menu-bar');
-let navbar = document.querySelector('.navbar');
+const wrapper = document.querySelector('.wrapper');
+const loginLink = document.querySelector('.login-link');
+const registerLink = document.querySelector('.register-link');
 
-menu.onclick = () =>{
-    menu.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-}
+registerLink.addEventListener('click', ()=> {
+    wrapper.classList.add('active');
+});
 
-window.onscroll = () =>{
-    menu.classList.remove('fa-times');
-    navbar.classList.remove('active');
-}
+loginLink.addEventListener('click', ()=> {
+    wrapper.classList.remove('active');
+});
